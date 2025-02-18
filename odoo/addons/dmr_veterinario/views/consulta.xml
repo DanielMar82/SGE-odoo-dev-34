@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="dmr_veterinario.consulta_form" model="ir.ui.view">
+        <field name="name">dmr_veterinario.consulta.tree.view</field>
+        <field name="model">dmr_veterinario.consulta</field>
+        <field name="arch" type="xml">
+            <form string="Consulta">
+                <sheet>
+                    <group>
+                        <field name="motivo" />
+                        <field name="fecha" />
+                        <field name="diagnostico" />
+                        <field name="tratamiento" />
+                        <field name="precio" />
+                        <field name="estado" />
+                        <field name="paciente_id" />
+                        <field name="propietario_id" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dmr_veterinario.consulta_tree" model="ir.ui.view">
+        <field name="name">dmr_veterinario.consulta.tree.view</field>
+        <field name="model">dmr_veterinario.consulta</field>
+        <field name="arch" type="xml">
+            <tree string="Consulta">
+                <field name="motivo" />
+                <field name="fecha" />
+                <field name="diagnostico" />
+                <field name="tratamiento" />
+                <field name="precio" />
+                <field name="estado" />
+                <field name="paciente_id" />
+                <field name="propietario_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="dmr_veterinario.consulta_kanban" model="ir.ui.view">
+        <field name="name">dmr_veterinario.consulta.kanban.view</field>
+        <field name="model">dmr_veterinario.consulta</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global">
+                            <div class="oe_kanban_details">
+                                <ul> 
+                                    <li>Motivo:<field name="motivo" /></li>
+                                    <li>Fecha: <field name="fecha" /></li>
+                                    <li>Diagnostico: <field name="diagnostico" /></li>
+                                    <li>Tratamiento: <field name="tratamiento" /></li>
+                                    <li>Precio: <field name="precio" /></li>
+                                    <li>Estado: <field name="estado" /></li>
+                                    <li>Paciente: <field name="paciente_id" /></li>
+                                    <li>Propietario: <field name="propietario_id" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    </data>
+</odoo>
