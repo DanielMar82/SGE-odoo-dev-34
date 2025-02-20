@@ -10,6 +10,7 @@ Long description of module's purpose
 
     'author': "Daniel Martín Ruiz",
     'website': "https://www.yourcompany.com",
+    'icon': '/dmr_veterinario/static/description/IconModulo.png',
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -29,7 +30,7 @@ Long description of module's purpose
         'views/menus.xml',
         
     ],
-    'images': ['static/description/IconModulo.png'],
+    # 'images': ['static/description/IconModulo2.png'],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
