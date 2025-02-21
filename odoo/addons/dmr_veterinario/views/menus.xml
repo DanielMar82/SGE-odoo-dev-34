@@ -13,14 +13,12 @@
             <field name="name">Propietarios</field>
             <field name="res_model">dmr_veterinario.propietario</field>
             <field name="view_mode">kanban,tree,form</field>
-            <field name="context">{}</field>
         </record>
 
         <record id="dmr_veterinario.consulta_action" model="ir.actions.act_window">
             <field name="name">Consultas</field>
             <field name="res_model">dmr_veterinario.consulta</field>
             <field name="view_mode">kanban,tree,form</field>
-            <field name="context">{}</field>
         </record>
     
         <!--MENUS-->

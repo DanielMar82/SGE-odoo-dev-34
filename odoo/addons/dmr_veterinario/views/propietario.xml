@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data>
 
-    <data noupdate="1">
-        
         <record id="dmr_veterinario.propietario_form" model="ir.ui.view">
-            <field name="name">dmr_veterinario.propietario.tree.view</field>
+            <field name="name">dmr_veterinario.propietario.form.view</field>
             <field name="model">dmr_veterinario.propietario</field>
             <field name="arch" type="xml">
                 <form string="Propietario">
@@ -21,7 +20,7 @@
                 </form>
             </field>
         </record>
-    
+
         <record id="dmr_veterinario.propietario_tree" model="ir.ui.view">
             <field name="name">dmr_veterinario.propietario.tree.view</field>
             <field name="model">dmr_veterinario.propietario</field>
@@ -39,13 +38,14 @@
 
         <record id="dmr_veterinario.propietario_kanban" model="ir.ui.view">
             <field name="name">dmr_veterinario.propietario.kanban.view</field>
-            <field name="model">dmr_veterinario.propietario</field>            <field name="arch" type="xml">
+            <field name="model">dmr_veterinario.propietario</field>
+            <field name="arch" type="xml">
                 <kanban>
                     <templates>
                         <t t-name="kanban-box">
-                            <div class="oe_kanban_card oe_kanban_global_click" t-att-data-id="record.id.raw_value" style="cursor: pointer;">
+                            <div class="oe_kanban_card oe_kanban_global_click" t-att-data-id="record.id.raw_value">
                                 <div class="oe_kanban_details">
-                                    <ul> 
+                                    <ul>
                                         <li>Nombre:<field name="name" /></li>
                                         <li>DNI: <field name="dni" /></li>
                                         <li>Telefono: <field name="telefono" /></li>

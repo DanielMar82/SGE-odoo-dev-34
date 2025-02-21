@@ -30,7 +30,6 @@ Long description of module's purpose
         'views/menus.xml',
         
     ],
-    # 'images': ['static/description/IconModulo2.png'],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

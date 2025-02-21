@@ -3,7 +3,7 @@
     <data>
 
     <record id="dmr_veterinario.consulta_form" model="ir.ui.view">
-        <field name="name">dmr_veterinario.consulta.tree.view</field>
+        <field name="name">dmr_veterinario.consulta.form.view</field>
         <field name="model">dmr_veterinario.consulta</field>
         <field name="arch" type="xml">
             <form string="Consulta">
@@ -30,10 +30,10 @@
             <tree string="Consulta">
                 <field name="motivo" />
                 <field name="fecha" />
+                <field name="estado" />
                 <field name="diagnostico" />
                 <field name="tratamiento" />
                 <field name="precio" />
-                <field name="estado" />
                 <field name="paciente_id" />
                 <field name="propietario_id" />
             </tree>
@@ -52,10 +52,10 @@
                                 <ul> 
                                     <li>Motivo:<field name="motivo" /></li>
                                     <li>Fecha: <field name="fecha" /></li>
+                                    <li>Estado: <field name="estado" /></li>
                                     <li>Diagnostico: <field name="diagnostico" /></li>
                                     <li>Tratamiento: <field name="tratamiento" /></li>
                                     <li>Precio: <field name="precio" /></li>
-                                    <li>Estado: <field name="estado" /></li>
                                     <li>Paciente: <field name="paciente_id" /></li>
                                     <li>Propietario: <field name="propietario_id" /></li>
                                 </ul>
