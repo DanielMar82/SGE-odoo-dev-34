@@ -9,12 +9,13 @@
             <form string="Consulta">
                 <sheet>
                     <group>
+                        <field name="name" />
                         <field name="motivo" />
                         <field name="fecha" />
-                        <field name="diagnostico" />
-                        <field name="tratamiento" />
-                        <field name="precio" />
                         <field name="estado" />
+                        <field name="diagnostico" />
+                        <field name="tratamiento"/>
+                        <field name="precio"/>
                         <field name="paciente_id" />
                         <field name="propietario_id" readonly="1" />
                     </group>
@@ -28,6 +29,7 @@
         <field name="model">dmr_veterinario.consulta</field>
         <field name="arch" type="xml">
             <tree string="Consulta">
+                <field name="name" />
                 <field name="motivo" />
                 <field name="fecha" />
                 <field name="estado" />
@@ -50,7 +52,8 @@
                         <div class="oe_kanban_global">
                             <div class="oe_kanban_details">
                                 <ul> 
-                                    <li>Motivo:<field name="motivo" /></li>
+                                    <li>Titulo: <field name="name" /></li>
+                                    <li>Motivo: <field name="motivo" /></li>
                                     <li>Fecha: <field name="fecha" /></li>
                                     <li>Estado: <field name="estado" /></li>
                                     <li>Diagnostico: <field name="diagnostico" /></li>
