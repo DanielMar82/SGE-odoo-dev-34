@@ -56,9 +56,9 @@
                                     <li>Motivo: <field name="motivo" /></li>
                                     <li>Fecha: <field name="fecha" /></li>
                                     <li>Estado: <field name="estado" /></li>
-                                    <li>Diagnostico: <field name="diagnostico" /></li>
-                                    <li>Tratamiento: <field name="tratamiento" /></li>
-                                    <li>Precio: <field name="precio" /></li>
+                                    <!-- <li>Diagnostico: <field name="diagnostico" /></li> -->
+                                    <!-- <li>Tratamiento: <field name="tratamiento" /></li> -->
+                                    <!-- <li>Precio: <field name="precio" /></li> -->
                                     <li>Paciente: <field name="paciente_id" /></li>
                                     <li>Propietario: <field name="propietario_id" /></li>
                                 </ul>

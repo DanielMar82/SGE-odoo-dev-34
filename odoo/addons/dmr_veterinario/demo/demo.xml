@@ -1,30 +1,139 @@
 <odoo>
     <data>
-<!--
-          <record id="object0" model="dmr_veterinario.dmr_veterinario">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
+
+<!-- PACIENTES (mascotas) -->
+          <record id="dmr_veterinario.paciente_01" model="dmr_veterinario.paciente">
+            <field name="name">Julito</field>
+            <field name="fecha_nacimiento">2023-01-28</field>
+            <field name="sexo">Macho</field>
+            <field name="tipo">Domestico</field>
+            <field name="especie">Perro</field>
+            <field name="raza">Chucho</field>
+            <field name="peso">9.5</field>
+            <!-- <field name="imagen">0</field> -->
+            <field name="propietario_id" ref="dmr_veterinario.propietario_01" />
           </record>
 
-          <record id="object1" model="dmr_veterinario.dmr_veterinario">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
+          <record id="dmr_veterinario.paciente_02" model="dmr_veterinario.paciente">
+            <field name="name">Paquita</field>
+            <field name="fecha_nacimiento">2020-09-02</field>
+            <field name="sexo">Hembra</field>
+            <field name="tipo">Granja</field>
+            <field name="especie">Vaca</field>
+            <field name="raza">Blanc bleu belge</field>
+            <field name="peso">715</field>
+            <!-- <field name="imagen">0</field> -->
+            <field name="propietario_id" ref="dmr_veterinario.propietario_02" />
           </record>
 
-          <record id="object2" model="dmr_veterinario.dmr_veterinario">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
+          <record id="dmr_veterinario.paciente_03" model="dmr_veterinario.paciente">
+            <field name="name">Lacoste</field>
+            <field name="fecha_nacimiento">2019-11-03</field>
+            <field name="sexo">Macho</field>
+            <field name="tipo">Exotico</field>
+            <field name="especie">Cocodrilo</field>
+            <field name="raza">Cocodrilo del Orinoco</field>
+            <field name="peso">120</field>
+            <!-- <field name="imagen">0</field> -->
+            <field name="propietario_id" ref="dmr_veterinario.propietario_03" />
           </record>
 
-          <record id="object3" model="dmr_veterinario.dmr_veterinario">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
+          <record id="dmr_veterinario.paciente_04" model="dmr_veterinario.paciente">
+            <field name="name">Perico</field>
+            <field name="fecha_nacimiento">2023-08-30</field>
+            <field name="sexo">Macho</field>
+            <field name="tipo">Exotico</field>
+            <field name="especie">Periquito</field>
+            <field name="raza">Periquito común</field>
+            <field name="peso">0.5</field>
+            <!-- <field name="imagen">0</field> -->
+            <field name="propietario_id" ref="dmr_veterinario.propietario_04" />
           </record>
 
-          <record id="object4" model="dmr_veterinario.dmr_veterinario">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
+          <record id="dmr_veterinario.paciente_05" model="dmr_veterinario.paciente">
+            <field name="name">Drake</field>
+            <field name="fecha_nacimiento">2024-03-22</field>
+            <field name="sexo">Macho</field>
+            <field name="tipo">Exotico</field>
+            <field name="especie">Lechuza</field>
+            <field name="raza">Lechuza común</field>
+            <field name="peso">5</field>
+            <!-- <field name="imagen">0</field> -->
+            <field name="propietario_id" ref="dmr_veterinario.propietario_03" />
           </record>
--->
+
+
+<!-- PROPIETARIOS (dueños) -->
+          <record id="dmr_veterinario.propietario_01" model="dmr_veterinario.propietario">
+            <field name="name">Paco Fiestas</field>
+            <field name="dni">27389231W</field>
+            <field name="telefono">783921362</field>
+            <field name="correo">PaFiestas@gmail.com</field>
+            <field name="direccion">Calle de la fiesta</field>
+          </record>
+
+          <record id="dmr_veterinario.propietario_02" model="dmr_veterinario.propietario">
+            <field name="name">Anton Alvarez</field>
+            <field name="dni">12436778C</field>
+            <field name="telefono">892123721</field>
+            <field name="correo">Crema@gmail.com</field>
+            <field name="direccion">Calle Entre estrecho y alvarado</field>
+          </record>
+
+          <record id="dmr_veterinario.propietario_03" model="dmr_veterinario.propietario">
+            <field name="name">Javier Ibarra</field>
+            <field name="dni">92888372K</field>
+            <field name="telefono">666472388</field>
+            <field name="correo">KaseO@gmail.com</field>
+            <field name="direccion">Avenida del verso</field>
+          </record>
+
+          <record id="dmr_veterinario.propietario_04" model="dmr_veterinario.propietario">
+            <field name="name">Maria Antonieta</field>
+            <field name="dni">83194333M</field>
+            <field name="telefono">654392348</field>
+            <field name="correo">MariaAntonieta@gmail.com</field>
+            <field name="direccion">Calle no pierdas la cabeza</field>
+          </record>
+
+
+
+<!-- CONSULTAS -->
+          <record id="dmr_veterinario.consulta_01" model="dmr_veterinario.consulta">
+            <field name="name">Consulta 1</field>
+            <field name="motivo">Asfixia por comerse un cojín</field>
+            <field name="fecha">2025-02-20</field>
+            <field name="estado">Realizada</field>
+            <field name="diagnostico">El animal presentaba signos de asfixia y tenía un cojín en el esofago con el que no podía casi respirar</field>
+            <field name="tratamiento">Reposo y vigilancia</field>
+            <field name="precio">10.90</field>
+            <field name="paciente_id" ref="dmr_veterinario.paciente_03" />
+            <field name="propietario_id" ref="dmr_veterinario.propietario_03" />
+          </record>
+
+          <record id="dmr_veterinario.consulta_02" model="dmr_veterinario.consulta">
+            <field name="name">Consulta 2</field>
+            <field name="motivo">Perdida de plumas</field>
+            <field name="fecha">2025-03-10</field>
+            <field name="estado">Pendiente</field>
+            <!-- <field name="diagnostico"></field> -->
+            <!-- <field name="tratamiento"></field> -->
+            <!-- <field name="precio"></field> -->
+            <field name="paciente_id" ref="dmr_veterinario.paciente_04" />
+            <field name="propietario_id" ref="dmr_veterinario.propietario_04" />
+          </record>
+
+          <record id="dmr_veterinario.consulta_03" model="dmr_veterinario.consulta">
+            <field name="name">Consulta 3</field>
+            <field name="motivo">Ruido raro al mugir</field>
+            <field name="fecha">2025-02-12</field>
+            <field name="estado">Realizada</field>
+            <field name="diagnostico">El animal realiza un ruido extraño al mugir y se ven irritaciones en la garganta</field>
+            <field name="tratamiento">Vigilancia y comida baja en fibra</field>
+            <field name="precio">10.90</field>
+            <field name="paciente_id" ref="dmr_veterinario.paciente_02" />
+            <field name="propietario_id" ref="dmr_veterinario.propietario_02" />
+          </record>
+
     </data>
 </odoo>

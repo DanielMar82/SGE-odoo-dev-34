@@ -27,20 +27,20 @@ class Consulta(models.Model):
 
     propietario_id = fields.Many2one('dmr_veterinario.propietario', string='Propietario', compute="_compute_propietario", store=True, readonly=True)
 
-    # @api.depends('estado')
-    # def _compute_readonly_fields(self):
-    #     for record in self:
-    #         readonly = record.estado != '1'
-    #         record.diagnostico = False
-    #         record.tratamiento = False
-    #         record.precio = False
+    @api.depends('estado')
+    def _compute_readonly_fields(self):
+        for record in self:
+            readonly = record.estado != '1'
+            record.diagnostico = False
+            record.tratamiento = False
+            record.precio = False
 
 
 #ESTO NO FUNCIONA TODAVIA
-    @api.constrains('diagnostico', 'tratamiento', 'precio')
-    def _check_fields(self):
-        for record in self:
-            if record.estado != '1' and (record.diagnostico or record.tratamiento or record.precio):
-                raise ValidationError("Los campos Diagnóstico, Tratamiento y Precio solo pueden ser llenados si el estado es 'Realizada'.")
+    # @api.constrains('diagnostico', 'tratamiento', 'precio')
+    # def _check_fields(self):
+    #     for record in self:
+    #         if record.estado != '1' and (record.diagnostico or record.tratamiento or record.precio):
+    #             raise ValidationError("Los campos Diagnóstico, Tratamiento y Precio solo pueden ser llenados si el estado es 'Realizada'.")
 
     
