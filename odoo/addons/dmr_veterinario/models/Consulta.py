@@ -17,6 +17,7 @@ class Consulta(models.Model):
     tratamiento = fields.Char('Tratamiento')
     precio = fields.Float('Precio')
     paciente_id = fields.Many2one('dmr_veterinario.paciente', string='Paciente')
+    doctor_ids = fields.Many2many('dmr_veterinario.doctor', 'consulta_doctor_rel', 'consulta_id', 'doctor_id', string='Doctores asociados')
 
 
     #Esto hace que al poner el paciente automaticamente se pone el propietario relacionado a este

@@ -10,5 +10,4 @@ class Propietario(models.Model):
     telefono = fields.Integer('Telefono')
     correo = fields.Char('Correo')
     direccion = fields.Char('Direccion')
-    # paciente_id = fields.Many2one('dmr_veterinario.paciente', string='Paciente')
-    # paciente_id = fields.One2many('dmr_veterinario.paciente', 'propietario_id', string='paciente')
+    paciente_ids = fields.One2many('dmr_veterinario.paciente', 'propietario_id', string='Pacientes asociados')
