@@ -22,5 +22,5 @@ class Paciente(models.Model):
     especie = fields.Char('Especie')
     raza = fields.Char('Raza')
     peso = fields.Float('Peso')
-    imagen = fields.Image('Imagen')
+    imagen = fields.Binary('Imagen')
     propietario_id = fields.Many2one('dmr_veterinario.propietario', string='Propietario')

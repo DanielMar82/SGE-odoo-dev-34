@@ -49,7 +49,7 @@
             <kanban>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_global">
+                        <div class="oe_kanban_card oe_kanban_global_click">
                             <div class="oe_kanban_details">
                                 <ul> 
                                     <li>Titulo: <field name="name" /></li>
