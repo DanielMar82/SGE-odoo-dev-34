@@ -1,16 +1,6 @@
 <odoo>
     <data>
 
-    <!-- DOCTORES (veterinarios) -->
-      <record id="dmr_veterinario.doctor_01" model="dmr_veterinario.doctor">
-        <field name="name">Manolo Escobar</field>
-        <field name="dni">83726183L</field>
-        <field name="telefono">672839401</field>
-        <field name="correo">Manolo@gmail.com</field>
-        <field name="epecialidad">1</field>
-        <field name="consulta_ids"></field>
-      </record>
-
     <!-- PROPIETARIOS (dueños) -->
           <record id="dmr_veterinario.propietario_01" model="dmr_veterinario.propietario">
             <field name="name">Paco Fiestas</field>
@@ -138,6 +128,16 @@
             <field name="precio">10.90</field>
             <field name="paciente_id" ref="dmr_veterinario.paciente_02" />
             <field name="propietario_id" ref="dmr_veterinario.propietario_02" />
+          </record>
+
+          <!-- DOCTORES (veterinarios) -->
+          <record id="dmr_veterinario.doctor_01" model="dmr_veterinario.doctor">
+            <field name="name">Manolo Escobar</field>
+            <field name="dni">83726183L</field>
+            <field name="telefono">672839401</field>
+            <field name="correo">Manolo@gmail.com</field>
+            <field name="epecialidad">1</field>
+            <field name="consulta_ids" eval="[(6, 0, [ref('dmr_veterinario.consulta_01'), ref('dmr_veterinario.consulta_02'), ref('dmr_veterinario.consulta_03')])]" />
           </record>
 
     </data>

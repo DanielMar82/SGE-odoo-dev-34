@@ -9,7 +9,7 @@ class Doctor(models.Model):
     dni = fields.Char('DNI')
     telefono = fields.Integer('Telefono')
     correo = fields.Char('Correo')
-    especialidad = = fields.Selection([
+    especialidad = fields.Selection([
         ('0', 'Domestico'),
         ('1', 'Exotico'),
         ('2', 'Granja'),

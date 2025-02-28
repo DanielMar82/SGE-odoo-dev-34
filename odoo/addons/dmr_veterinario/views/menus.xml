@@ -20,6 +20,12 @@
             <field name="res_model">dmr_veterinario.consulta</field>
             <field name="view_mode">kanban,tree,form</field>
         </record>
+
+        <record id="dmr_veterinario.doctor_action" model="ir.actions.act_window">
+            <field name="name">Doctores</field>
+            <field name="res_model">dmr_veterinario.doctor</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
     
         <!--MENUS-->
 
@@ -46,6 +52,13 @@
             id="dmr_veterinario.consulta_menu"
             name="Consulta"
             action="dmr_veterinario.consulta_action"
+            parent="dmr_veterinario.root_menu"
+            sequence="10"/>
+        
+        <menuitem
+            id="dmr_veterinario.doctor_menu"
+            name="Doctor"
+            action="dmr_veterinario.doctor_action"
             parent="dmr_veterinario.root_menu"
             sequence="10"/>
 

@@ -32,6 +32,7 @@ Long description of module's purpose
         'views/paciente.xml',
         'views/propietario.xml',
         'views/consulta.xml',
+        'views/doctor.xml',
         'views/menus.xml',
         
     ],
