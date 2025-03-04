@@ -2,72 +2,116 @@
 <odoo>
     <data>
 
-    <record id="dmr_veterinario.consulta_form" model="ir.ui.view">
-        <field name="name">dmr_veterinario.consulta.form.view</field>
-        <field name="model">dmr_veterinario.consulta</field>
-        <field name="arch" type="xml">
-            <form string="Consulta">
-                <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="motivo" />
-                        <field name="fecha" />
-                        <field name="estado" />
-                        <field name="diagnostico" />
-                        <field name="tratamiento"/>
-                        <field name="precio"/>
-                        <field name="paciente_id" />
-                        <field name="propietario_id" readonly="1" />
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+    <!-- Estas son las vistas de consulta las cuales son formulario (Form), lista (Tree), kanban, buscador (Search), gráfico (Graph) y tablas (Pivot) -->
 
-    <record id="dmr_veterinario.consulta_tree" model="ir.ui.view">
-        <field name="name">dmr_veterinario.consulta.tree.view</field>
-        <field name="model">dmr_veterinario.consulta</field>
-        <field name="arch" type="xml">
-            <tree string="Consulta">
-                <field name="name" />
-                <field name="motivo" />
-                <field name="fecha" />
-                <field name="estado" />
-                <field name="diagnostico" />
-                <field name="tratamiento" />
-                <field name="precio" />
-                <field name="paciente_id" />
-                <field name="propietario_id" />
-            </tree>
-        </field>
-    </record>
+        <!-- FORM -->
+        <record id="dmr_veterinario.consulta_form" model="ir.ui.view">
+            <field name="name">dmr_veterinario.consulta.form.view</field>
+            <field name="model">dmr_veterinario.consulta</field>
+            <field name="arch" type="xml">
+                <form string="Consulta">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="motivo" />
+                            <field name="fecha" />
+                            <field name="estado" />
+                            <field name="diagnostico" />
+                            <field name="tratamiento" />
+                            <field name="precio" />
+                            <field name="paciente_id" />
+                            <field name="propietario_id" readonly="1" />
+                            <field name="doctor_ids" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record id="dmr_veterinario.consulta_kanban" model="ir.ui.view">
-        <field name="name">dmr_veterinario.consulta.kanban.view</field>
-        <field name="model">dmr_veterinario.consulta</field>
-        <field name="arch" type="xml">
-            <kanban>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_card oe_kanban_global_click">
-                            <div class="oe_kanban_details">
-                                <ul> 
-                                    <li>Titulo: <field name="name" /></li>
-                                    <li>Motivo: <field name="motivo" /></li>
-                                    <li>Fecha: <field name="fecha" /></li>
-                                    <li>Estado: <field name="estado" /></li>
-                                    <!-- <li>Diagnostico: <field name="diagnostico" /></li> -->
-                                    <!-- <li>Tratamiento: <field name="tratamiento" /></li> -->
-                                    <!-- <li>Precio: <field name="precio" /></li> -->
-                                    <li>Paciente: <field name="paciente_id" /></li>
-                                    <li>Propietario: <field name="propietario_id" /></li>
-                                </ul>
+        <!-- TREE -->
+        <record id="dmr_veterinario.consulta_tree" model="ir.ui.view">
+            <field name="name">dmr_veterinario.consulta.tree.view</field>
+            <field name="model">dmr_veterinario.consulta</field>
+            <field name="arch" type="xml">
+                <tree string="Consulta">
+                    <field name="name" />
+                    <field name="motivo" />
+                    <field name="fecha" />
+                    <field name="estado" />
+                    <field name="diagnostico" />
+                    <field name="tratamiento" />
+                    <field name="precio" />
+                    <field name="paciente_id" />
+                    <field name="propietario_id" />
+                    <field name="doctor_ids" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- KANBAN -->
+        <record id="dmr_veterinario.consulta_kanban" model="ir.ui.view">
+            <field name="name">dmr_veterinario.consulta.kanban.view</field>
+            <field name="model">dmr_veterinario.consulta</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <ul> 
+                                        <li>Titulo: <field name="name" /></li>
+                                        <li>Motivo: <field name="motivo" /></li>
+                                        <li>Fecha: <field name="fecha" /></li>
+                                        <li>Estado: <field name="estado" /></li>
+                                        <li>Paciente: <field name="paciente_id" /></li>
+                                        <li>Propietario: <field name="propietario_id" /></li>
+                                        <li>Doctores: <field name="doctor_ids" /></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- SEARCH -->
+        <record id="dmr_veterinario.consulta_search" model="ir.ui.view">
+            <field name="name" >dmr_veterinario.consulta.search</field>
+            <field name="model" >dmr_veterinario.consulta</field>
+            <field name="arch" type="xml">
+                <search string="consulta">
+                    <field name="name" />
+                    <field name="motivo" />
+                    <field name="fecha" />
+                    <field name="estado" />
+                    <field name="paciente_id" />
+                </search>
+            </field>
+        </record>
+
+        <!-- GRAPH -->
+        <record id="dmr_veterinario.consulta_graph" model="ir.ui.view">
+            <field name="name" >dmr_veterinario.consulta.graph</field>
+            <field name="model" >dmr_veterinario.consulta</field>
+            <field name="arch" type="xml">
+                <graph string="Consultas" type="bar">
+                    <field name="estado" />
+                </graph>
+            </field>
+        </record>
+
+        <!-- PIVOT -->
+        <record id="dmr_veterinario.consulta_pivot" model="ir.ui.view">
+            <field name="name" >dmr_veterinario.consulta.pivot</field>
+            <field name="model" >dmr_veterinario.consulta</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="name" type="row" />
+                    <field name="precio" type="col" />
+                </pivot>
+            </field>
+        </record>
+
     </data>
 </odoo>

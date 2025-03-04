@@ -1,12 +1,14 @@
 <odoo>
 
-    <data>
-        <!--ACCIONES-->
+    <!-- Este es el menú, donde se enlazan las distintas vistas del módulo -->
 
+    <data>
+
+        <!--ACCIONES-->
         <record id="dmr_veterinario.paciente_action" model="ir.actions.act_window">
             <field name="name">Pacientes</field>
             <field name="res_model">dmr_veterinario.paciente</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">kanban,tree,form,graph</field>
         </record>
 
         <record id="dmr_veterinario.propietario_action" model="ir.actions.act_window">
@@ -15,25 +17,27 @@
             <field name="view_mode">kanban,tree,form</field>
         </record>
 
-        <record id="dmr_veterinario.consulta_action" model="ir.actions.act_window">
-            <field name="name">Consultas</field>
-            <field name="res_model">dmr_veterinario.consulta</field>
-            <field name="view_mode">kanban,tree,form</field>
-        </record>
-
         <record id="dmr_veterinario.doctor_action" model="ir.actions.act_window">
             <field name="name">Doctores</field>
             <field name="res_model">dmr_veterinario.doctor</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">kanban,tree,form,graph</field>
         </record>
+
+        <record id="dmr_veterinario.consulta_action" model="ir.actions.act_window">
+            <field name="name">Consultas</field>
+            <field name="res_model">dmr_veterinario.consulta</field>
+            <field name="view_mode">kanban,tree,form,graph,pivot</field>
+        </record>
+
     
         <!--MENUS-->
-
+        <!-- PRINCIPAL -->
         <menuitem
             id="dmr_veterinario.root_menu"
             name="Veterinario"
             sequence="10"/>        
     
+        <!-- PACIENTE -->
         <menuitem
             id="dmr_veterinario.paciente_menu"
             name="Paciente"
@@ -41,13 +45,23 @@
             parent="dmr_veterinario.root_menu"
             sequence="10"/>
         
+        <!-- PROPIETARIO -->
         <menuitem
             id="dmr_veterinario.propietario_menu"
             name="Propietario"
             action="dmr_veterinario.propietario_action"
             parent="dmr_veterinario.root_menu"
             sequence="10"/>
+
+        <!-- DOCTOR -->
+        <menuitem
+            id="dmr_veterinario.doctor_menu"
+            name="Doctor"
+            action="dmr_veterinario.doctor_action"
+            parent="dmr_veterinario.root_menu"
+            sequence="10"/>
         
+        <!-- CONSULTA -->
         <menuitem
             id="dmr_veterinario.consulta_menu"
             name="Consulta"
@@ -55,15 +69,6 @@
             parent="dmr_veterinario.root_menu"
             sequence="10"/>
         
-        <menuitem
-            id="dmr_veterinario.doctor_menu"
-            name="Doctor"
-            action="dmr_veterinario.doctor_action"
-            parent="dmr_veterinario.root_menu"
-            sequence="10"/>
-
-        
     </data>
-    
 
 </odoo>

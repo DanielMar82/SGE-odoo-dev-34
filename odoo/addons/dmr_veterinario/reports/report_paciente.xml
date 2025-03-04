@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Este es el informe de paciente -->
+
+    <record id="dmr_veterinario.paciente_informe" model="ir.actions.report">
+        <field name="name">dmr_veterinario.paciente.informe</field>
+        <field name="model">dmr_veterinario.paciente</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">dmr_veterinario.informePaciente</field>
+        <field name="report_file">dmr_veterinario.informePaciente</field>
+        <field name="binding_model_id" ref="model_dmr_veterinario_paciente" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="dmr_veterinario.informePaciente">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="paciente">
+                <t t-call="web.basic_layout">
+                    <div class="header" />
+                    <div class="page" />
+                    <h1 t-field="paciente.name" />
+
+                    <div>
+                        <strong>Nombre: </strong>
+                        <span t-field="paciente.name" />
+                    </div>
+
+                    <div>
+                        <strong>Fecha nacimiento: </strong>
+                        <span t-field="paciente.fecha_nacimiento" />
+                    </div>
+
+                    <div>
+                        <strong>Sexo: </strong>
+                        <span t-field="paciente.sexo" />
+                    </div>
+
+                    <div>
+                        <strong>Tipo: </strong>
+                        <span t-field="paciente.tipo" />
+                    </div>
+
+                    <div>
+                        <strong>Especie: </strong>
+                        <span t-field="paciente.especie" />
+                    </div>
+
+                    <div>
+                        <strong>Propietario: </strong>
+                        <span t-field="paciente.propietario_id.name" />
+                    </div>
+
+                    <div class="footer" />
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

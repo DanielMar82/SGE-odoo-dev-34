@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# Este es el modelo de propietario con sus respectivas propiedades
+
 from odoo import models, fields, api
 class Propietario(models.Model):
     _name = 'dmr_veterinario.propietario'

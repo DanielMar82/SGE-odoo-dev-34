@@ -2,6 +2,9 @@
 <odoo>
     <data>
 
+    <!-- Estas son las vistas de doctor las cuales son formulario (Form), lista (Tree), kanban, buscador (Search) y gráfico (Graph) -->
+
+        <!-- FORM -->
         <record id="dmr_veterinario.doctor_form" model="ir.ui.view">
             <field name="name">dmr_veterinario.doctor.form.view</field>
             <field name="model">dmr_veterinario.doctor</field>
@@ -15,25 +18,37 @@
                             <field name="correo" />
                             <field name="especialidad" />
                         </group>
+                        <group>
+                            <field name="consulta_ids">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="motivo" />
+                                    <field name="fecha" />
+                                    <field name="estado" />
+                                </tree>
+                            </field>
+                        </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
+        <!-- TREE -->
         <record id="dmr_veterinario.doctor_tree" model="ir.ui.view">
             <field name="name">dmr_veterinario.doctor.tree.view</field>
             <field name="model">dmr_veterinario.doctor</field>
             <field name="arch" type="xml">
                 <tree string="Doctor">
                     <field name="name" />
-                        <field name="dni" />
-                        <field name="telefono" />
-                        <field name="correo" />
-                        <field name="especialidad" />
+                    <field name="dni" />
+                    <field name="telefono" />
+                    <field name="correo" />
+                    <field name="especialidad" />
                 </tree>
             </field>
         </record>
 
+        <!-- KANBAN -->
         <record id="dmr_veterinario.doctor_kanban" model="ir.ui.view">
             <field name="name">dmr_veterinario.doctor.kanban.view</field>
             <field name="model">dmr_veterinario.doctor</field>
@@ -57,5 +72,32 @@
                 </kanban>
             </field>
         </record>
+
+        <!-- SEARCH -->
+        <record id="dmr_veterinario.doctor_search" model="ir.ui.view">
+            <field name="name" >dmr_veterinario.doctor.search</field>
+            <field name="model" >dmr_veterinario.doctor</field>
+            <field name="arch" type="xml">
+                <search string="doctor">
+                    <field name="name" />
+                    <field name="dni" />
+                    <field name="telefono" />
+                    <field name="correo" />
+                    <field name="especialidad" />
+                </search>
+            </field>
+        </record>
+
+        <!-- GRAPH -->
+        <record id="dmr_veterinario.doctor_graph" model="ir.ui.view">
+            <field name="name" >dmr_veterinario.doctor.graph</field>
+            <field name="model" >dmr_veterinario.doctor</field>
+            <field name="arch" type="xml">
+                <graph string="Doctores" type="pie">
+                    <field name="especialidad" />
+                </graph>
+            </field>
+        </record>
+
     </data>
 </odoo>

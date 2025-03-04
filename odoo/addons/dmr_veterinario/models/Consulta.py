@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
+# Este es el modelo de consulta con sus respectivas propiedades
+
 from odoo import models, fields, api
 class Consulta(models.Model):
     _name = 'dmr_veterinario.consulta'
     _description = 'Consulta'
 
-    name = fields.Char('Nombre')
+    name = fields.Char('Nombre', required=True)
     motivo = fields.Char('Motivo')
     fecha = fields.Date('Fecha')
     estado = fields.Selection([
@@ -20,28 +22,11 @@ class Consulta(models.Model):
     doctor_ids = fields.Many2many('dmr_veterinario.doctor', 'consulta_doctor_rel', 'consulta_id', 'doctor_id', string='Doctores asociados')
 
 
-    #Esto hace que al poner el paciente automaticamente se pone el propietario relacionado a este
+    # Esta es una función la cual hace que cuando se rellene una consulta con un paciente se ponga automaticamente el propietario de ese paciente
     @api.depends('paciente_id')
     def _compute_propietario(self):
         for record in self:
             record.propietario_id = record.paciente_id.propietario_id if record.paciente_id else False
 
     propietario_id = fields.Many2one('dmr_veterinario.propietario', string='Propietario', compute="_compute_propietario", store=True, readonly=True)
-
-    @api.depends('estado')
-    def _compute_readonly_fields(self):
-        for record in self:
-            readonly = record.estado != '1'
-            record.diagnostico = False
-            record.tratamiento = False
-            record.precio = False
-
-
-#ESTO NO FUNCIONA TODAVIA
-    # @api.constrains('diagnostico', 'tratamiento', 'precio')
-    # def _check_fields(self):
-    #     for record in self:
-    #         if record.estado != '1' and (record.diagnostico or record.tratamiento or record.precio):
-    #             raise ValidationError("Los campos Diagnóstico, Tratamiento y Precio solo pueden ser llenados si el estado es 'Realizada'.")
-
     

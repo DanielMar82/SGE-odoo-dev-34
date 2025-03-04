@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# Este es el modelo de doctor con sus respectivas propiedades
+
 from odoo import models, fields, api
 class Doctor(models.Model):
     _name = 'dmr_veterinario.doctor'

@@ -1,6 +1,8 @@
 <odoo>
     <data>
 
+    <!-- Estos son los datos de demo (Por defecto) que trae el módulo -->
+
     <!-- PROPIETARIOS (dueños) -->
           <record id="dmr_veterinario.propietario_01" model="dmr_veterinario.propietario">
             <field name="name">Paco Fiestas</field>
@@ -44,6 +46,7 @@
             <field name="raza">Chucho</field>
             <field name="peso">9.5</field> 
             <field name="imagen" type="base64" file="dmr_veterinario/static/images/paciente_01.jpg"></field>
+            <!-- IDs Relaciones -->
             <field name="propietario_id" ref="dmr_veterinario.propietario_01" />
           </record>
 
@@ -56,6 +59,7 @@
             <field name="raza">Blanc bleu belge</field>
             <field name="peso">715</field>
             <field name="imagen" type="base64" file="dmr_veterinario/static/images/paciente_02.jpeg"></field>
+            <!-- IDs Relaciones -->
             <field name="propietario_id" ref="dmr_veterinario.propietario_03" />
           </record>
 
@@ -63,11 +67,12 @@
             <field name="name">Lacoste</field>
             <field name="fecha_nacimiento">2019-11-03</field>
             <field name="sexo">1</field>
-            <field name="tipo">1</field>
+            <field name="tipo">4</field>
             <field name="especie">Cocodrilo</field>
             <field name="raza">Cocodrilo del Orinoco</field>
             <field name="peso">120</field>
             <field name="imagen" type="base64" file="dmr_veterinario/static/images/paciente_03.jpg"></field>
+            <!-- IDs Relaciones -->
             <field name="propietario_id" ref="dmr_veterinario.propietario_02" />
           </record>
 
@@ -80,6 +85,7 @@
             <field name="raza">Periquito común</field>
             <field name="peso">0.5</field>
             <field name="imagen" type="base64" file="dmr_veterinario/static/images/paciente_04.jpg"></field>
+            <!-- IDs Relaciones -->
             <field name="propietario_id" ref="dmr_veterinario.propietario_04" />
           </record>
 
@@ -92,7 +98,41 @@
             <field name="raza">Lechuza común</field>
             <field name="peso">5</field>
             <field name="imagen" type="base64" file="dmr_veterinario/static/images/paciente_05.jpeg"></field>
+            <!-- IDs Relaciones -->
             <field name="propietario_id" ref="dmr_veterinario.propietario_02" />
+          </record>
+
+          <!-- DOCTORES (veterinarios) -->
+          <record id="dmr_veterinario.doctor_01" model="dmr_veterinario.doctor">
+            <field name="name">Manolo Escobar</field>
+            <field name="dni">83726183L</field>
+            <field name="telefono">672839401</field>
+            <field name="correo">Manolo@gmail.com</field>
+            <field name="especialidad">4</field>
+          </record>
+
+          <record id="dmr_veterinario.doctor_02" model="dmr_veterinario.doctor">
+            <field name="name">Joaquin Sabina</field>
+            <field name="dni">09856367Q</field>
+            <field name="telefono">686271455</field>
+            <field name="correo">Joaquin@gmail.com</field>
+            <field name="especialidad">1</field>
+          </record>
+
+          <record id="dmr_veterinario.doctor_03" model="dmr_veterinario.doctor">
+            <field name="name">Paula Gonu</field>
+            <field name="dni">84407438Z</field>
+            <field name="telefono">714222536</field>
+            <field name="correo">Paula@gmail.com</field>
+            <field name="especialidad">1</field>
+          </record>
+          
+          <record id="dmr_veterinario.doctor_04" model="dmr_veterinario.doctor">
+            <field name="name">Jorge Javier</field>
+            <field name="dni">98267152S</field>
+            <field name="telefono">652782525</field>
+            <field name="correo">JJ@gmail.com</field>
+            <field name="especialidad">2</field>
           </record>
 
 
@@ -105,8 +145,10 @@
             <field name="diagnostico">El animal presentaba signos de asfixia y tenía un cojín en el esofago con el que no podía casi respirar</field>
             <field name="tratamiento">Reposo y vigilancia</field>
             <field name="precio">10.90</field>
+            <!-- IDs Relaciones -->
             <field name="paciente_id" ref="dmr_veterinario.paciente_03" />
             <field name="propietario_id" ref="dmr_veterinario.propietario_03" />
+            <field name="doctor_ids" eval="[(6, 0, [ref('dmr_veterinario.doctor_01')])]" />
           </record>
 
           <record id="dmr_veterinario.consulta_02" model="dmr_veterinario.consulta">
@@ -114,8 +156,10 @@
             <field name="motivo">Perdida de plumas</field>
             <field name="fecha">2025-03-10</field>
             <field name="estado">0</field>
+            <!-- IDs Relaciones -->
             <field name="paciente_id" ref="dmr_veterinario.paciente_04" />
             <field name="propietario_id" ref="dmr_veterinario.propietario_04" />
+            <field name="doctor_ids" eval="[(6, 0, [ref('dmr_veterinario.doctor_02'), ref('dmr_veterinario.doctor_03')])]" />
           </record>
 
           <record id="dmr_veterinario.consulta_03" model="dmr_veterinario.consulta">
@@ -126,19 +170,13 @@
             <field name="diagnostico">El animal realiza un ruido extraño al mugir y se ven irritaciones en la garganta</field>
             <field name="tratamiento">Vigilancia y comida baja en fibra</field>
             <field name="precio">10.90</field>
+            <!-- IDs Relaciones -->
             <field name="paciente_id" ref="dmr_veterinario.paciente_02" />
             <field name="propietario_id" ref="dmr_veterinario.propietario_02" />
+            <field name="doctor_ids" eval="[(6, 0, [ref('dmr_veterinario.doctor_04'), ref('dmr_veterinario.doctor_02')])]" />
           </record>
 
-          <!-- DOCTORES (veterinarios) -->
-          <record id="dmr_veterinario.doctor_01" model="dmr_veterinario.doctor">
-            <field name="name">Manolo Escobar</field>
-            <field name="dni">83726183L</field>
-            <field name="telefono">672839401</field>
-            <field name="correo">Manolo@gmail.com</field>
-            <field name="epecialidad">1</field>
-            <field name="consulta_ids" eval="[(6, 0, [ref('dmr_veterinario.consulta_01'), ref('dmr_veterinario.consulta_02'), ref('dmr_veterinario.consulta_03')])]" />
-          </record>
+          
 
     </data>
 </odoo>

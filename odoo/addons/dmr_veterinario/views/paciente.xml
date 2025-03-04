@@ -2,75 +2,110 @@
 <odoo>
     <data>
 
-    <record id="dmr_veterinario.paciente_form" model="ir.ui.view">
-        <field name="name">dmr_veterinario.paciente.form.view</field>
-        <field name="model">dmr_veterinario.paciente</field>
-        <field name="arch" type="xml">
-            <form string="Paciente">
-                <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="fecha_nacimiento" />
-                        <field name="sexo" />
-                        <field name="tipo" />
-                        <field name="especie" />
-                        <field name="raza" />
-                        <field name="peso" />
-                        <field name="propietario_id" />
-                        <field name="imagen" widget="image" options="{'size': [200, 300]}"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+    <!-- Estas son las vistas de paciente las cuales son formulario (Form), lista (Tree), kanban, buscador (Search) y gráfico (Graph) -->
 
-    <record id="dmr_veterinario.paciente_tree" model="ir.ui.view">
-        <field name="name">dmr_veterinario.paciente.tree.view</field>
-        <field name="model">dmr_veterinario.paciente</field>
-        <field name="arch" type="xml">
-            <tree string="Paciente">
-                <field name="name" />
-                <field name="fecha_nacimiento"></field>
-                <field name="sexo" />
-                <field name="tipo" />
-                <field name="especie" />
-                <field name="raza" />
-                <field name="peso" />
-                <field name="propietario_id" />
-                <field name="imagen" widget="image" options="{'size': [100, 200]}"/>
-            </tree>
-        </field>
-    </record>
+        <!-- FORM -->
+        <record id="dmr_veterinario.paciente_form" model="ir.ui.view">
+            <field name="name">dmr_veterinario.paciente.form.view</field>
+            <field name="model">dmr_veterinario.paciente</field>
+            <field name="arch" type="xml">
+                <form string="Paciente">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="fecha_nacimiento" />
+                            <field name="sexo" />
+                            <field name="tipo" />
+                            <field name="especie" />
+                            <field name="raza" />
+                            <field name="peso" />
+                            <field name="propietario_id" />
+                            <field name="imagen" widget="image" options="{'size': [200, 300]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record id="dmr_veterinario.paciente_kanban" model="ir.ui.view">
-        <field name="name">dmr_veterinario.paciente.kanban.view</field>
-        <field name="model">dmr_veterinario.paciente</field>
-        <field name="arch" type="xml">
-            <kanban>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_card oe_kanban_global_click" t-att-data-id="record.id.raw_value"
-                             style="border: 1px solid #ddd; padding: 10px; text-align: left; background: #f9f9f9; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); cursor: pointer;">
-                            <div class="oe_kanban_image">
-                                <img t-att-src="kanban_image('dmr_veterinario.paciente', 'imagen', record.id.raw_value)" class="oe_kanban_avatar" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;"/>
+        <!-- TREE -->
+        <record id="dmr_veterinario.paciente_tree" model="ir.ui.view">
+            <field name="name">dmr_veterinario.paciente.tree.view</field>
+            <field name="model">dmr_veterinario.paciente</field>
+            <field name="arch" type="xml">
+                <tree string="Paciente">
+                    <field name="name" />
+                    <field name="fecha_nacimiento"></field>
+                    <field name="sexo" />
+                    <field name="tipo" />
+                    <field name="especie" />
+                    <field name="raza" />
+                    <field name="peso" />
+                    <field name="propietario_id" />
+                    <field name="imagen" widget="image" options="{'size': [100, 200]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- KANBAN -->
+        <record id="dmr_veterinario.paciente_kanban" model="ir.ui.view">
+            <field name="name">dmr_veterinario.paciente.kanban.view</field>
+            <field name="model">dmr_veterinario.paciente</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click" t-att-data-id="record.id.raw_value"
+                                style="border: 1px solid #ddd; padding: 10px; text-align: left; background: #f9f9f9; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); cursor: pointer;">
+                                <div class="oe_kanban_image">
+                                    <img t-att-src="kanban_image('dmr_veterinario.paciente', 'imagen', record.id.raw_value)" class="oe_kanban_avatar" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul> 
+                                        <li>Nombre: <field name="name" /></li>
+                                        <li>Fecha de nacimiento: <field name="fecha_nacimiento" /></li>
+                                        <li>Sexo: <field name="sexo" /></li>
+                                        <li>Tipo: <field name="tipo" /></li>
+                                        <li>Especie: <field name="especie" /></li>
+                                        <li>Raza: <field name="raza" /></li>
+                                        <li>Peso: <field name="peso" /> kg</li>
+                                        <li>Propietario: <field name="propietario_id" /></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="oe_kanban_details">
-                                <ul> 
-                                    <li>Nombre: <field name="name" /></li>
-                                    <li>Fecha de nacimiento: <field name="fecha_nacimiento" /></li>
-                                    <li>Sexo: <field name="sexo" /></li>
-                                    <li>Tipo: <field name="tipo" /></li>
-                                    <li>Especie: <field name="especie" /></li>
-                                    <li>Raza: <field name="raza" /></li>
-                                    <li>Peso: <field name="peso" /> kg</li>
-                                    <li>Propietario: <field name="propietario_id" /></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- SEARCH -->
+        <record id="dmr_veterinario.paciente_search" model="ir.ui.view">
+            <field name="name" >dmr_veterinario.paciente.search</field>
+            <field name="model" >dmr_veterinario.paciente</field>
+            <field name="arch" type="xml">
+                <search string="paciente">
+                    <field name="name" />
+                    <field name="fecha_nacimiento" />
+                    <field name="sexo" />
+                    <field name="tipo" />
+                    <field name="especie" />
+                    <field name="raza" />
+                    <field name="peso" />
+                    <field name="propietario_id" />
+                </search>
+            </field>
+        </record>
+
+        <!-- GRAPH -->
+        <record id="dmr_veterinario.paciente_graph" model="ir.ui.view">
+            <field name="name" >dmr_veterinario.paciente.graph</field>
+            <field name="model" >dmr_veterinario.paciente</field>
+            <field name="arch" type="xml">
+                <graph string="Pacientes" type="pie">
+                    <field name="tipo" />
+                </graph>
+            </field>
+        </record>
+
     </data>
 </odoo>

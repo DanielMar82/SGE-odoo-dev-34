@@ -5,7 +5,8 @@
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
     'description': """
-Long description of module's purpose
+    Este es un módulo gestor de veterinario donde podremos gestionar a los pacientes (Los animales), los propietarios (Los dueños), los doctores y las consultas.
+    Pudiendo crear, borrar y cambiar los distintos datos que se guarden en el veterinario.
     """,
 
     'installable': True,
@@ -13,7 +14,7 @@ Long description of module's purpose
     'auto_install': False,
     'license': 'LGPL-3',
     'author': "Daniel Martín Ruiz",
-    'website': "https://www.yourcompany.com",
+    'website': "https://www.Veterinario.com",
     'icon': 'dmr_veterinario/static/description/IconModulo.png',
 
     # Categories can be used to filter modules in modules listing
@@ -21,7 +22,6 @@ Long description of module's purpose
     # for the full list
     'category': 'Applications',
     'version': '0.1',
-    'application': True,
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
@@ -34,6 +34,7 @@ Long description of module's purpose
         'views/consulta.xml',
         'views/doctor.xml',
         'views/menus.xml',
+        'reports/report_paciente.xml',
         
     ],
     # only loaded in demonstration mode
