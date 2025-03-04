@@ -21,7 +21,17 @@
                             <field name="precio" />
                             <field name="paciente_id" />
                             <field name="propietario_id" readonly="1" />
-                            <field name="doctor_ids" />
+                        </group>
+                        <group>
+                            <field name="doctor_ids">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="dni" />
+                                    <field name="telefono" />
+                                    <field name="correo" />
+                                    <field name="especialidad" />
+                                </tree>
+                            </field>
                         </group>
                     </sheet>
                 </form>
